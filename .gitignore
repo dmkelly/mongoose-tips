@@ -1,0 +1,47 @@
+# Linux
+!.gitignore
+*~
+~*
+Session.vim
+
+# OSX
+*.DS_Store
+*.ds_store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+*.log
+.#*
+.project
+.settings
+build
+node_modules
+reports
+coverage
+/cache
+
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+.sass-cache

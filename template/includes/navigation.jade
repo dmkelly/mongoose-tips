@@ -1,0 +1,9 @@
+.navbar.navbar-static-top
+  .navbar-inner
+    a.brand(href="/") Comment Board
+    ul.nav.pull-right
+      if session
+        li: a(href="/logout") Logout
+      else
+        li: a(href="/signup") Signup
+        li: a(href="/login") Login

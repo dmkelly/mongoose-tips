@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .row
+    .span6.offset2
+      form(action="/signup", method="post")
+        fieldset
+          legend Signup
+          label Username
+          input(type="text", name="username")
+          label Password
+          input(type="password", name="password")
+          label Confirm Password
+          input(type="password", name="confirm")
+          br
+          button.btn.btn-primary(type="submit") Signup

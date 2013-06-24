@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  .row
+    .span6.offset2
+      h1 Comment Board
+      if users.length === 0
+        p no users yet
+
+      each user in users
+        .row
+          .span12
+            a(href="/users/#{user.username}") #{user.username}
+            br
+            p= user.about
+

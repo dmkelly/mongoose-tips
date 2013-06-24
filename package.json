@@ -1,0 +1,33 @@
+{
+  "name": "mongoose-tips",
+  "version": "0.0.0",
+  "description": "Demonstrates some tips, tricks, and gotchas when using Mongoose.",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dmkelly/mongoose-tips.git"
+  },
+  "keywords": [
+    "mongoose",
+    "mongodb",
+    "tips"
+  ],
+  "author": "Dave Kelly",
+  "license": "Creative Commons",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "underscore": "~1.4.4",
+    "express": "~3.2.6",
+    "async": "~0.2.9",
+    "mongoose": "~3.6.11",
+    "jade": "~0.31.2",
+    "crypto": "0.0.3"
+  },
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}

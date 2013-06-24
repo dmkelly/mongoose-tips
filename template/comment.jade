@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .row
+    .span6.offset2
+      h1 To&nbsp;
+        a(href="/users/#{user.username}") #{comment.entity.username}
+      form(action="/users/#{user.username}/comments/#{comment.id}", method="post")
+        blockquote
+          if session && comment.isAuthored(session._id)
+            textarea(name="text") #{comment.text}
+          else
+            p= comment.text
+          small: a(href="/users/#{user.username}") #{user.username}
+        if session && comment.isAuthored(session._id)
+          input.btn.btn-warning(type="submit", value="edit")
+      if session && comment.isOwned(session._id)
+        form.form-inline(action="/users/#{user.username}/comments/#{comment.id}/delete", method="post")
+          button.btn.btn-danger(type="submit") Delete

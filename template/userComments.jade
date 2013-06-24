@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  .row
+    .span6.offset2
+      h2 #{user.username}'s Comments
+      if comments.length === 0
+        p no comments
+      each comment in comments
+        p
+          strong To&nbsp;
+            a(href="/users/#{comment.entity.username}") #{comment.entity.username}
+            | :&nbsp;
+          | #{comment.text}&nbsp;
+          a(href="/users/#{user.username}/comments/#{comment.id}") Show comment &raquo;

@@ -1,0 +1,14 @@
+!!!
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    title= TITLE
+    link(rel="stylesheet", href="/css/bootstrap.min.css")
+  body
+    block navigation
+      include includes/navigation
+    .container
+      block content
+
+    script(src="/js/jquery.js")
+    script(src="/js/bootstrap.min.js")

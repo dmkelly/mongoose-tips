@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  .row
+    .span6.offset2
+      h1= user.username
+      if session && session._id === user.id.toString()
+        form.form-inline(action="/users/#{user.username}", method="post")
+          input(placeholder="about you", type="text", name="about", value=user.about)
+          button.btn.btn-warning(type="submit") Edit
+      else
+        p= user.about
+      p: a(href="/users/#{user.username}/comments") #{user.username}'s comments
+  .row
+    .span6.offset2
+      h2 Comments
+      if session
+        form.form-inline(action="/users/#{user.username}/comments", method="post")
+          label(for="text") #{session.username}:&nbsp;
+          input#text(name="text", type="text", placeholder="leave a comment")
+          button.btn.btn-primary(type="submit") Comment
+
+      if comments.length === 0
+        p no comments
+      each comment in comments
+        p
+          strong
+            a(href="/users/#{comment.author.username}") #{comment.author.username}
+            | :&nbsp;
+          | #{comment.text}&nbsp;
+          a(href="/users/#{comment.author.username}/comments/#{comment.id}") Show comment &raquo;
