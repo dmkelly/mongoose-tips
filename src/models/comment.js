@@ -1,4 +1,5 @@
 var _ = require('underscore');
+var moment = require('moment');
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
@@ -27,6 +28,10 @@ Comment.set('toJSON', {
     delete ret.__v;
     return ret;
   }
+});
+
+Comment.virtual('time').get(function() {
+  return moment(this._id.getTimestamp()).fromNow();
 });
 
 Comment.methods.isAuthored = function(userId) {

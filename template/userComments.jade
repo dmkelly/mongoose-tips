@@ -10,6 +10,6 @@ block content
         p
           strong To&nbsp;
             a(href="/users/#{comment.entity.username}") #{comment.entity.username}
-            | :&nbsp;
-          | #{comment.text}&nbsp;
+          | &nbsp;(#{comment.time}):&nbsp;
+          em #{comment.text}&nbsp;
           a(href="/users/#{user.username}/comments/#{comment.id}") Show comment &raquo;

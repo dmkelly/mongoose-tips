@@ -11,7 +11,9 @@ block content
             textarea(name="text") #{comment.text}
           else
             p= comment.text
-          small: a(href="/users/#{user.username}") #{user.username}
+          small
+            a(href="/users/#{user.username}") #{user.username}
+            | &nbsp;#{comment.time}
         if session && comment.isAuthored(session._id)
           input.btn.btn-warning(type="submit", value="edit")
       if session && comment.isOwned(session._id)

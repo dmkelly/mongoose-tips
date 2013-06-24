@@ -24,7 +24,8 @@
     "async": "~0.2.9",
     "mongoose": "~3.6.11",
     "jade": "~0.31.2",
-    "crypto": "0.0.3"
+    "crypto": "0.0.3",
+    "moment": "~2.0.0"
   },
   "engines": {
     "node": "0.10.x",
