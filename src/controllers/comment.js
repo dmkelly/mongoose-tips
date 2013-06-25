@@ -48,7 +48,7 @@ function show(req, res) {
 
 function edit(req, res) {
   var comment = res.locals.comment;
-  comment = _.extend(comment, req.body);
+  comment.text = req.body.text;
   comment.save(function(err) {
     if (err) {
       return res.error(err);

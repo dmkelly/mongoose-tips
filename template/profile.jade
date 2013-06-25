@@ -29,6 +29,6 @@ block content
         p
           strong
             a(href="/users/#{comment.author.username}") #{comment.author.username}
-            | &nbsp;(#{comment.time}):&nbsp;
-          | !{comment.text}&nbsp;
+          | &nbsp;(#{comment.time}):&nbsp;
+          em !{comment.text}&nbsp;
           a(href="/users/#{comment.author.username}/comments/#{comment.id}") Show comment &raquo;
