@@ -7,12 +7,12 @@ var CommentModel;
 
 var Comment = new Schema({
   author: {
-    type: Schema.ObjectId,
+    type: Schema.Types.ObjectId,
     required: true,
     ref: 'User'
   },
   entity: {
-    type: Schema.ObjectId,
+    type: Schema.Types.ObjectId,
     required: true,
     ref: 'User'
   },
@@ -47,7 +47,11 @@ Comment.methods.isOwned = function(userId) {
 Comment.statics.findByAuthorId = function(authorId, callback) {
   var query = CommentModel.find({
     author: authorId
-  }).populate('entity');
+  }).populate({
+    path: 'entity',
+    model: mongoose.models.User,
+    select: 'username about'
+  });
 
   if (!callback) {
     return query;
@@ -58,7 +62,11 @@ Comment.statics.findByAuthorId = function(authorId, callback) {
 Comment.statics.findByEntityId = function(entityId, callback) {
   var query = CommentModel.find({
     entity: entityId
-  }).populate('author', 'username about');
+  }).populate({
+    path: 'author',
+    model: mongoose.models.User,
+    select: 'username about'
+  });
 
   if (!callback) {
     return query;

@@ -34,7 +34,11 @@ function sent(req, res) {
 }
 
 function show(req, res) {
-  res.locals.comment.populate('entity', function(err, comment) {
+  res.locals.comment.populate({
+    path: 'entity',
+    select: 'username about',
+    model: mongoose.models.User
+  }, function(err, comment) {
     if (err) {
       return res.error(err);
     }
