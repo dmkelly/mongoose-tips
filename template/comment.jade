@@ -8,9 +8,9 @@ block content
       form(action="/users/#{user.username}/comments/#{comment.id}", method="post")
         blockquote
           if session && comment.isAuthored(session._id)
-            textarea(name="text") #{comment.text}
+            textarea(name="text") !{comment.text}
           else
-            p= comment.text
+            p!= comment.text
           small
             a(href="/users/#{user.username}") #{user.username}
             | &nbsp;#{comment.time}

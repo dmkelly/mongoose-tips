@@ -11,5 +11,5 @@ block content
           strong To&nbsp;
             a(href="/users/#{comment.entity.username}") #{comment.entity.username}
           | &nbsp;(#{comment.time}):&nbsp;
-          em #{comment.text}&nbsp;
+          em !{comment.text}&nbsp;
           a(href="/users/#{user.username}/comments/#{comment.id}") Show comment &raquo;

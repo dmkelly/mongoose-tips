@@ -32,14 +32,18 @@ User.set('toJSON', {
   transform: function(doc, ret, options) {
     delete ret.password;
     delete ret.__v;
-    delete ret._id;
     return ret;
   }
 });
 
 User.pre('remove', function(callback) {
+  var id = this.id;
   mongoose.models.Comment.remove({
-    author: this.id
+    $or: [{
+      author: id
+    }, {
+      entity: id
+    }]
   }, callback);
 });
 

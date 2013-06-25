@@ -9,8 +9,8 @@ block content
 
       each user in users
         .row
-          .span12
+          .span6
             a(href="/users/#{user.username}") #{user.username}
             br
-            p= user.about
+            p!= user.about
 

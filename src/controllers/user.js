@@ -82,6 +82,15 @@ function edit(req, res) {
   });
 }
 
+function remove(req, res) {
+  res.locals.user.remove(function(err) {
+    if (err) {
+      return res.error(err);
+    }
+    logout(req, res);
+  });
+}
+
 function list(req, res) {
   models.User.find({}, function(err, users) {
     if (err) {
@@ -99,4 +108,5 @@ module.exports.login = login;
 module.exports.logout = logout;
 module.exports.show = show;
 module.exports.edit = edit;
+module.exports.remove = remove;
 module.exports.list = list;

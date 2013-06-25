@@ -10,6 +10,7 @@ function router(app) {
   app.get('/logout', ctrl.user.logout);
   app.get('/users/:user', mid.attachUser, ctrl.user.show);
   app.post('/users/:user', mid.requireUser, ctrl.user.edit);
+  app.post('/users/:user/delete', mid.requireUser, ctrl.user.remove);
   app.get('/users/:user/comments', mid.attachUser, ctrl.comment.sent);
   app.post('/users/:user/comments', mid.requireAuth, mid.attachUser, ctrl.comment.create);
   app.get('/users/:user/comments/:comment', mid.attachUser, mid.attachComment, ctrl.comment.show);
